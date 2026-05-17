@@ -1,6 +1,6 @@
 # WizardsCarRental
 
-A car rental web application built using React by the goat Zee
+A car rental web application built using React by the goat Zee.
 
 ## 📦 Requirements
 
