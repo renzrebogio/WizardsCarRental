@@ -1,0 +1,292 @@
+/* === RATES PAGE === */
+.rates-banner {
+  text-align: center;
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rates-banner__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(245, 166, 35, 0.08) 0%, transparent 60%);
+}
+
+.rates-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.rates-banner__content h1 {
+  margin-bottom: 16px;
+}
+
+.rates-banner__sub {
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rates-content {
+  padding-bottom: 80px;
+}
+
+/* Period Toggle */
+.rates-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin: 40px auto 60px;
+  background: var(--surface-container);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  max-width: 360px;
+  border: 1px solid rgba(82, 69, 52, 0.2);
+}
+
+.rates-toggle__btn {
+  flex: 1;
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.rates-toggle__btn:hover {
+  color: var(--primary);
+}
+
+.rates-toggle__btn--active {
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+
+/* Rate Cards */
+.rates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 640px) {
+  .rates-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rates-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rate-card {
+  background: var(--surface-container);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(82, 69, 52, 0.2);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.rate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(76, 214, 254, 0.1);
+}
+
+.rate-card--popular {
+  border-color: var(--secondary);
+  box-shadow: 0 0 20px rgba(76, 214, 254, 0.15);
+}
+
+.rate-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary);
+  color: var(--on-secondary);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.rate-card__image-wrap {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.rate-card__image {
+  max-height: 140px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+}
+
+.rate-card__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--on-background);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.rate-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.rate-card__period {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.rate-card__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.rate-card__spec-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.rate-card__spec-item .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.rate-card__btn {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Add-Ons */
+.addons {
+  margin-top: 80px;
+}
+
+.addons__title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--on-background);
+}
+
+.addons__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .addons__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.addon-card {
+  background: var(--surface-container);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(82, 69, 52, 0.2);
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.addon-card--active {
+  border-color: var(--secondary);
+  box-shadow: 0 0 20px rgba(76, 214, 254, 0.1);
+}
+
+.addon-card__icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(76, 214, 254, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.addon-card__icon {
+  color: var(--secondary);
+  font-size: 24px;
+}
+
+.addon-card__name {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-background);
+  margin-bottom: 8px;
+}
+
+.addon-card__desc {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  margin-bottom: 20px;
+}
+
+.addon-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addon-card__price {
+  font-size: 24px;
+  color: var(--on-background);
+}
+
+/* Toggle Switch */
+.addon-toggle {
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--surface-variant);
+  position: relative;
+  transition: background 0.3s;
+  padding: 3px;
+}
+
+.addon-toggle--on {
+  background: var(--secondary);
+}
+
+.addon-toggle__thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.3s;
+}
+
+.addon-toggle--on .addon-toggle__thumb {
+  transform: translateX(22px);
+}
+
+.color-primary { color: var(--primary); }

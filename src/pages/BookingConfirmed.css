@@ -1,0 +1,135 @@
+/* === BOOKING CONFIRMED PAGE === */
+.booking-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking-logo-wrap {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 24px;
+  background: #000;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.booking-title {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.booking-subtitle {
+  color: var(--on-surface-variant);
+  margin-bottom: 40px;
+}
+
+.booking-receipt {
+  border: 2px dashed rgba(255, 200, 128, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.booking-receipt__header {
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(82, 69, 52, 0.2);
+  margin-bottom: 20px;
+}
+
+.booking-receipt__ref {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--secondary);
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+}
+
+.booking-receipt__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.booking-receipt__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-surface-variant);
+  font-size: 16px;
+}
+
+.booking-receipt__label .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.booking-receipt__value {
+  color: var(--on-background);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.booking-receipt__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(82, 69, 52, 0.2);
+}
+
+.booking-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.booking-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+}
+
+.booking-note {
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  margin-bottom: 32px;
+  opacity: 0.7;
+}
+
+.booking-home-link {
+  color: var(--secondary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.booking-home-link:hover {
+  color: var(--primary);
+}

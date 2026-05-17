@@ -1,0 +1,243 @@
+/* ═══ PRIVACY POLICY STYLING ═══ */
+
+.privacy-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 0 80px 0;
+  overflow: hidden;
+  background: var(--background);
+}
+
+/* Atmospheric Magic Backgrounds */
+.privacy-magic-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.privacy-aura {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+}
+
+.pr-aura-1 {
+  top: 10%;
+  left: -10%;
+  width: 450px;
+  height: 450px;
+  background: var(--primary);
+}
+
+.pr-aura-2 {
+  bottom: 20%;
+  right: -10%;
+  width: 450px;
+  height: 450px;
+  background: var(--secondary);
+}
+
+[data-theme="light"] .privacy-aura {
+  opacity: 0.05;
+}
+
+/* Section Header */
+.privacy-header-area {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-overline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.privacy-overline-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A84C);
+}
+
+[data-theme="light"] .privacy-overline-line {
+  background: linear-gradient(90deg, transparent, var(--primary));
+}
+
+.privacy-overline-text {
+  font-family: var(--font-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  color: #C9A84C;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+[data-theme="light"] .privacy-overline-text {
+  color: var(--primary);
+}
+
+.privacy-main-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="light"] .privacy-main-title {
+  color: var(--on-background);
+}
+
+.privacy-subtitle {
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Parchment Scroll Card */
+.privacy-scroll-card {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 1;
+  background: rgba(30, 20, 8, 0.45);
+  border: 1px solid rgba(255, 200, 128, 0.08);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+[data-theme="light"] .privacy-scroll-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(16, 92, 182, 0.12);
+  box-shadow: 0 10px 40px rgba(16, 92, 182, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.scroll-content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.scroll-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scroll-section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #C9A84C;
+  margin: 0;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  padding-bottom: 8px;
+}
+
+[data-theme="light"] .scroll-section-title {
+  color: var(--primary);
+  border-color: rgba(16, 92, 182, 0.15);
+}
+
+.scroll-section p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+[data-theme="light"] .scroll-section p {
+  color: var(--on-surface);
+}
+
+.scroll-section ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scroll-section li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .scroll-section li {
+  color: var(--on-surface);
+}
+
+.scroll-section strong {
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .scroll-section strong {
+  color: var(--on-background);
+}
+
+/* Contact Archivist Block */
+.contact-archivist {
+  text-align: center;
+  background: rgba(201, 168, 76, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 16px;
+}
+
+[data-theme="light"] .contact-archivist {
+  background: rgba(16, 92, 182, 0.02);
+  border-color: rgba(16, 92, 182, 0.15);
+}
+
+.archivist-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #C9A84C;
+  margin: 0 0 12px 0;
+}
+
+[data-theme="light"] .archivist-title {
+  color: var(--primary);
+}
+
+.archivist-email {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #38C8F0;
+  margin: 12px 0 4px 0;
+}
+
+[data-theme="light"] .archivist-email {
+  color: var(--primary);
+}
+
+.archivist-phone {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .privacy-scroll-card {
+    padding: 24px;
+  }
+  .privacy-main-title {
+    font-size: 32px;
+  }
+}

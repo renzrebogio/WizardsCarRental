@@ -1,0 +1,693 @@
+/* === CAR DETAILS PAGE === */
+.car-detail__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.car-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(25, 18, 10, 0.6);
+  border: 1px solid rgba(255, 200, 128, 0.25);
+  border-radius: 99px;
+  color: var(--primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.car-detail__back span.material-symbols-outlined {
+  transition: transform 0.3s ease;
+}
+
+.car-detail__back:hover {
+  background: rgba(255, 200, 128, 0.12);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(255, 200, 128, 0.35);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.car-detail__back:hover span.material-symbols-outlined {
+  transform: translateX(-4px);
+}
+
+/* Hero Container */
+.car-detail__hero {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  /* Default glow color fallback */
+  --glow-color: var(--primary); 
+}
+
+/* Layer 1 - Atmosphere */
+.platform-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse 70% 80% at 50% 60%,
+    rgba(40, 24, 4, 0.9) 0%,
+    rgba(20, 12, 2, 0.95) 40%,
+    rgba(10, 6, 1, 1) 100%
+  );
+  opacity: 0;
+  animation: platformFadeIn 0.6s ease-out forwards;
+}
+
+/* Layer 2 - Platform / Stage Floor */
+.platform-stage {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(60, 35, 5, 0.7) 0%,
+    rgba(30, 18, 3, 0.5) 40%,
+    transparent 75%
+  );
+  z-index: 2;
+  opacity: 0;
+  animation: platformFadeIn 0.6s ease-out forwards;
+}
+
+.platform-stage-edge {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(201, 168, 76, 0.15) 15%,
+    rgba(201, 168, 76, 0.5) 35%,
+    rgba(255, 210, 100, 0.8) 50%,
+    rgba(201, 168, 76, 0.5) 65%,
+    rgba(201, 168, 76, 0.15) 85%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(201,168,76,0.4),
+              0 0 24px rgba(201,168,76,0.2),
+              0 0 48px rgba(201,168,76,0.1);
+  z-index: 2;
+  opacity: 0;
+  animation: platformFadeIn 0.6s ease-out forwards,
+             platformEdgeShimmer 2.5s ease-in-out infinite 0.5s;
+}
+
+/* Layer 3 - Ground Glow */
+.platform-glow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 180, 40, 0.25) 0%,
+    rgba(201, 140, 20, 0.15) 35%,
+    rgba(180, 100, 10, 0.08) 60%,
+    transparent 80%
+  );
+  filter: blur(8px);
+  z-index: 3;
+  opacity: 0;
+  animation: platformFadeIn 0.6s ease-out forwards,
+             groundGlowBreathe 4s ease-in-out infinite 1s;
+}
+
+/* Layer 4 - Halo Ring */
+.platform-ring-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.6);
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    transparent 30%,
+    rgba(201, 168, 76, 0.06) 45%,
+    rgba(201, 168, 76, 0.12) 55%,
+    rgba(201, 168, 76, 0.06) 65%,
+    transparent 75%
+  );
+  filter: blur(16px);
+  z-index: 4;
+  opacity: 0;
+  animation: platformRingEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+}
+
+.platform-ring-sharp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.6);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  box-shadow: 
+    0 0 8px rgba(201,168,76,0.2),
+    0 0 20px rgba(201,168,76,0.1),
+    inset 0 0 8px rgba(201,168,76,0.05);
+  z-index: 4;
+  opacity: 0;
+  animation: platformRingEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards,
+             platformRingPulse 3s ease-in-out infinite 1s;
+}
+
+.platform-ring-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.6);
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  z-index: 4;
+  opacity: 0;
+  animation: platformRingEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+}
+
+/* Layer 5 - Spotlight Cone */
+.platform-spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 200, 80, 0.04) 0%,
+    rgba(255, 180, 60, 0.08) 30%,
+    rgba(255, 160, 40, 0.05) 60%,
+    transparent 85%
+  );
+  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: platformFadeIn 0.5s ease forwards 0.5s;
+}
+
+/* Layer 6 - Car Image Wrapper */
+.platform-car {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  width: 90%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 80%;
+  object-fit: contain;
+  z-index: 6;
+  opacity: 0;
+  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.8))
+          drop-shadow(0px 4px 12px rgba(0,0,0,0.9));
+  animation: platformCarEntrance 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.5s forwards;
+}
+
+
+
+/* Animations */
+@keyframes platformFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes platformRingEntrance {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.6); }
+  to { opacity: 1; transform: translate(-50%, -48%) scale(1); }
+}
+
+@keyframes platformCarEntrance {
+  from { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0px); }
+}
+
+@keyframes platformRingPulse {
+  0%   { opacity: 0.6; box-shadow: 0 0 8px rgba(201,168,76,0.2), 0 0 20px rgba(201,168,76,0.1); }
+  50%  { opacity: 1; box-shadow: 0 0 16px rgba(201,168,76,0.4), 0 0 40px rgba(201,168,76,0.2), 0 0 80px rgba(201,168,76,0.08); }
+  100% { opacity: 0.6; box-shadow: 0 0 8px rgba(201,168,76,0.2), 0 0 20px rgba(201,168,76,0.1); }
+}
+
+@keyframes platformEdgeShimmer {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes groundGlowBreathe {
+  0%   { opacity: 0.7; transform: translateX(-50%) scaleX(1); }
+  50%  { opacity: 1; transform: translateX(-50%) scaleX(1.05); }
+  100% { opacity: 0.7; transform: translateX(-50%) scaleX(1); }
+}
+
+@keyframes carHeroFloat {
+  0%   { transform: translateX(-50%) translateY(0px); }
+  50%  { transform: translateX(-50%) translateY(-8px); }
+  100% { transform: translateX(-50%) translateY(0px); }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .platform-bg,
+  .platform-stage,
+  .platform-stage-edge,
+  .platform-glow,
+  .platform-ring-outer,
+  .platform-ring-sharp,
+  .platform-ring-inner,
+  .platform-spotlight,
+  .platform-car {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .platform-ring-outer,
+  .platform-ring-sharp,
+  .platform-ring-inner {
+    transform: translate(-50%, -48%) scale(1) !important;
+  }
+  .platform-car {
+    transform: translateX(-50%) translateY(0px) !important;
+  }
+}
+
+/* Responsive Tablet */
+@media (max-width: 1023px) {
+  .car-detail__hero {
+    height: 400px;
+    border-radius: 0;
+  }
+  .platform-ring-outer { width: 340px; height: 340px; }
+  .platform-ring-sharp { width: 300px; height: 300px; }
+  .platform-ring-inner { width: 260px; height: 260px; }
+  .platform-car { max-width: 85%; }
+  .platform-stage-edge { width: 420px; }
+  .platform-glow { width: 380px; }
+}
+
+/* Responsive Mobile */
+@media (max-width: 480px) {
+  .car-detail__hero {
+    height: 280px;
+  }
+  .platform-ring-outer { width: 260px; height: 260px; }
+  .platform-ring-sharp { width: 220px; height: 220px; }
+  .platform-ring-inner { width: 180px; height: 180px; }
+  .platform-car { max-width: 95%; }
+  .platform-stage-edge { width: 300px; }
+  .platform-glow { width: 260px; }
+  .platform-spotlight { display: none; }
+
+  @keyframes carHeroFloat {
+    0%   { transform: translateX(-50%) translateY(0px); }
+    50%  { transform: translateX(-50%) translateY(-4px); }
+    100% { transform: translateX(-50%) translateY(0px); }
+  }
+}
+
+/* Body Grid */
+.car-detail__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .car-detail__body {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.car-detail__title {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--on-surface-variant);
+  margin-bottom: 8px;
+}
+
+.car-detail__desc {
+  color: var(--on-surface-variant);
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 32px;
+}
+
+.car-detail__section-title {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Stats Grid */
+.car-detail__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--surface-container);
+  border: 1px solid rgba(76, 214, 254, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.stat-card:hover {
+  border-color: rgba(76, 214, 254, 0.3);
+}
+
+.stat-card__icon {
+  color: var(--secondary);
+  font-size: 28px;
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--on-background);
+  letter-spacing: 0.02em;
+}
+
+.stat-card__label {
+  color: var(--on-surface-variant);
+}
+
+/* Features */
+.car-detail__features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+/* Booking Panel */
+.booking-panel {
+  background: var(--surface-container);
+  border: 1px solid rgba(82, 69, 52, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.booking-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.booking-panel__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--on-background);
+  letter-spacing: 0.05em;
+}
+
+.booking-panel__price {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Drive Modes */
+.booking-panel__modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.booking-mode {
+  padding: 10px;
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(82, 69, 52, 0.2);
+  transition: all 0.2s;
+}
+
+.booking-mode--active {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+/* Date Fields */
+.booking-panel__field {
+  margin-bottom: 16px;
+}
+
+.booking-panel__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(82, 69, 52, 0.2);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.booking-panel__input {
+  background: transparent;
+  color: var(--on-background);
+  font-size: 14px;
+  width: 100%;
+}
+
+.booking-panel__input::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
+
+.booking-panel__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  margin: 16px 0;
+  border-top: 1px solid rgba(82, 69, 52, 0.2);
+  color: var(--on-surface-variant);
+  font-size: 16px;
+}
+
+.booking-panel__confirm {
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+/* Visual Archives */
+.car-detail__archives {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.archive-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid rgba(76, 214, 254, 0.1);
+  transition: transform 0.3s, border-color 0.3s;
+  background: var(--surface-container-lowest);
+}
+
+.archive-img:hover {
+  transform: translateY(-4px);
+  border-color: rgba(76, 214, 254, 0.4);
+}
+
+/* Calendar */
+.booking-panel__calendar {
+  background: var(--surface-container-lowest);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--on-surface-variant);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.calendar-header span.material-symbols-outlined {
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.calendar-header span.material-symbols-outlined:hover {
+  color: var(--primary);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar-day-label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  margin-bottom: 8px;
+}
+
+.calendar-day {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--on-background);
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calendar-day:hover:not(.disabled):not(.active) {
+  background: rgba(255, 200, 128, 0.1);
+  border-radius: 4px;
+}
+
+.calendar-day.disabled {
+  color: rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.calendar-day.active {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: bold;
+  border-radius: 50%;
+  width: 28px;
+  margin: 0 auto;
+}
+
+.calendar-day.in-range {
+  background: rgba(255, 200, 128, 0.15);
+  color: var(--primary);
+}
+
+/* --- Light Mode Car Details Overrides --- */
+[data-theme="light"] .car-detail__back {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(16, 92, 182, 0.18);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(16, 92, 182, 0.08);
+}
+
+[data-theme="light"] .car-detail__back:hover {
+  background: rgba(16, 92, 182, 0.06);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(16, 92, 182, 0.2);
+  color: var(--primary);
+}
+
+[data-theme="light"] .platform-bg {
+  background: radial-gradient(
+    ellipse 70% 80% at 50% 60%,
+    rgba(224, 236, 255, 0.95) 0%,
+    rgba(240, 245, 250, 0.95) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+[data-theme="light"] .platform-stage {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(16, 92, 182, 0.12) 0%,
+    rgba(16, 92, 182, 0.04) 40%,
+    transparent 75%
+  );
+}
+
+[data-theme="light"] .platform-stage-edge {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(16, 92, 182, 0.3) 20%,
+    rgba(16, 92, 182, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+[data-theme="light"] .calendar-day.disabled {
+  color: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"] .calendar-day.in-range {
+  background: rgba(16, 92, 182, 0.08);
+  color: var(--primary);
+}
+
+[data-theme="light"] .calendar-day:hover:not(.disabled):not(.active) {
+  background: rgba(16, 92, 182, 0.08);
+}

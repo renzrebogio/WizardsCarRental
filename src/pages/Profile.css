@@ -1,0 +1,1174 @@
+/* ═══ PROFILE & CALENDAR SECTION STYLING ═══ */
+
+.profile-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 0 80px 0;
+  overflow: hidden;
+  background: var(--background);
+}
+
+/* Atmospheric Magic Backgrounds */
+.profile-magic-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-aura {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+}
+
+.p-aura-1 {
+  top: 10%;
+  left: -10%;
+  width: 450px;
+  height: 450px;
+  background: var(--primary);
+}
+
+.p-aura-2 {
+  bottom: 10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: var(--secondary);
+}
+
+[data-theme="light"] .profile-aura {
+  opacity: 0.06;
+}
+
+/* Grid layout columns */
+.profile-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .profile-grid-wrapper {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+/* Glassmorphism Panel Wrapper */
+.profile-card-glass {
+  background: rgba(30, 20, 8, 0.45);
+  border: 1px solid rgba(255, 200, 128, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .profile-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(16, 92, 182, 0.12);
+  box-shadow: 0 10px 40px rgba(16, 92, 182, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================
+   COLUMN 1: ACCOUNT DETAILS PANEL
+   ========================================== */
+.account-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.account-info-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Circular avatar styling with glowing border */
+.profile-avatar-frame {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 16px;
+}
+
+.profile-avatar-inner {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e1408 0%, #352617 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #C9A84C;
+  z-index: 2;
+}
+
+[data-theme="light"] .profile-avatar-inner {
+  background: linear-gradient(135deg, var(--primary), #003b80);
+  color: #ffffff;
+}
+
+.profile-avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.4);
+  background: transparent;
+  z-index: 1;
+  animation: avatarPulse 3s infinite ease-in-out;
+}
+
+[data-theme="light"] .profile-avatar-ring {
+  border-color: rgba(16, 92, 182, 0.4);
+}
+
+@keyframes avatarPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 1; box-shadow: 0 0 15px rgba(201, 168, 76, 0.2); }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.account-profile-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+
+[data-theme="light"] .account-profile-name {
+  color: var(--on-background);
+}
+
+.account-badge-pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+[data-theme="light"] .account-badge-pill {
+  color: var(--primary);
+  background: rgba(16, 92, 182, 0.08);
+  border-color: rgba(16, 92, 182, 0.18);
+}
+
+/* Mana Points Progress Bar */
+.account-mana-bar-area {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.account-mana-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}
+
+[data-theme="light"] .account-mana-bar-label {
+  color: var(--on-surface);
+}
+
+.account-mana-progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] .account-mana-progress-track {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: transparent;
+}
+
+.account-mana-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, #C9A84C 100%);
+}
+
+[data-theme="light"] .account-mana-progress-fill {
+  background: linear-gradient(90deg, #1e6bd6 0%, var(--primary) 100%);
+}
+
+.account-mana-caption {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  text-align: right;
+  margin: 0;
+}
+
+/* Quick Statistics Box Grid */
+.account-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.account-stat-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+[data-theme="light"] .account-stat-box {
+  background: rgba(16, 92, 182, 0.02);
+  border-color: rgba(16, 92, 182, 0.06);
+}
+
+.stat-box-icon {
+  font-size: 28px;
+  color: #C9A84C;
+}
+
+[data-theme="light"] .stat-box-icon {
+  color: var(--primary);
+}
+
+.stat-box-vals {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .stat-box-val {
+  color: var(--on-background);
+}
+
+.stat-box-label {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Profile Detail Rows */
+.account-detail-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.details-header-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #C9A84C;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  padding-bottom: 8px;
+  margin: 0 0 4px 0;
+}
+
+[data-theme="light"] .details-header-title {
+  color: var(--primary);
+  border-color: rgba(16, 92, 182, 0.15);
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-row-lbl {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.detail-row-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFFFF;
+  word-break: break-all;
+}
+
+[data-theme="light"] .detail-row-val {
+  color: var(--on-background);
+}
+
+/* Magical Perks */
+.account-perks-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.perk-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+[data-theme="light"] .perk-pill {
+  color: var(--on-background);
+  background: rgba(16, 92, 182, 0.02);
+  border-color: rgba(16, 92, 182, 0.05);
+}
+
+.perk-pill span.material-symbols-outlined {
+  color: #C9A84C;
+  font-size: 18px;
+}
+
+[data-theme="light"] .perk-pill span.material-symbols-outlined {
+  color: var(--primary);
+}
+
+
+/* ==========================================
+   COLUMN 2: ENCHANTED CALENDAR PANEL
+   ========================================== */
+.calendar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+
+.calendar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .calendar-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.calendar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-title-icon {
+  font-size: 32px;
+  color: #C9A84C;
+}
+
+[data-theme="light"] .calendar-title-icon {
+  color: var(--primary);
+}
+
+.calendar-main-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+[data-theme="light"] .calendar-main-title {
+  color: var(--on-background);
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: center;
+}
+
+.calendar-ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 200, 128, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  color: #C9A84C;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="light"] .calendar-ctrl-btn {
+  border-color: rgba(16, 92, 182, 0.15);
+  background: #ffffff;
+  color: var(--primary);
+}
+
+.calendar-ctrl-btn:hover {
+  background: rgba(201, 168, 76, 0.12);
+  transform: scale(1.05);
+}
+
+[data-theme="light"] .calendar-ctrl-btn:hover {
+  background: rgba(16, 92, 182, 0.06);
+}
+
+.calendar-month-indicator {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  min-width: 140px;
+  text-align: center;
+}
+
+[data-theme="light"] .calendar-month-indicator {
+  color: var(--on-background);
+}
+
+/* Grid Display Layout */
+.calendar-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calendar-week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar-week-day-lbl {
+  font-family: var(--font-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  padding: 8px 0;
+  letter-spacing: 0.05em;
+}
+
+/* Day grid and cells styling */
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day-cell {
+  position: relative;
+  aspect-ratio: 1.15;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+[data-theme="light"] .calendar-day-cell {
+  background: rgba(0, 0, 0, 0.01);
+  border-color: rgba(16, 92, 182, 0.04);
+}
+
+.calendar-day-cell:hover:not(.cell-empty) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .calendar-day-cell:hover:not(.cell-empty) {
+  background: rgba(16, 92, 182, 0.04);
+  border-color: rgba(16, 92, 182, 0.3);
+  box-shadow: 0 4px 12px rgba(16, 92, 182, 0.08);
+}
+
+.cell-empty {
+  background: transparent !important;
+  border-color: transparent !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cell-day-num {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="light"] .cell-day-num {
+  color: var(--on-surface-variant);
+}
+
+/* Today Cell Highlight */
+.cell-today {
+  border-color: #C9A84C !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+}
+
+[data-theme="light"] .cell-today {
+  border-color: var(--primary) !important;
+  background: rgba(16, 92, 182, 0.04) !important;
+}
+
+.cell-today .cell-day-num {
+  color: #C9A84C;
+  font-weight: 700;
+}
+
+[data-theme="light"] .cell-today .cell-day-num {
+  color: var(--primary);
+}
+
+/* Active Booked Calendar Cell Styling */
+.cell-has-booking {
+  border-width: 1px;
+}
+
+.booking-blue {
+  background: rgba(16, 92, 182, 0.12) !important;
+  border-color: rgba(16, 92, 182, 0.4) !important;
+  box-shadow: 0 0 15px rgba(16, 92, 182, 0.15) !important;
+}
+
+.booking-red {
+  background: rgba(230, 35, 35, 0.12) !important;
+  border-color: rgba(230, 35, 35, 0.4) !important;
+  box-shadow: 0 0 15px rgba(230, 35, 35, 0.15) !important;
+}
+
+.cell-booking-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.cell-booking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.booking-blue .cell-booking-dot { background-color: #105cb6; }
+.booking-red .cell-booking-dot { background-color: #e62323; }
+
+.cell-booking-txt {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff;
+}
+
+[data-theme="light"] .cell-booking-txt {
+  color: var(--on-background);
+}
+
+/* Legend items block styling */
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  margin-top: 8px;
+}
+
+[data-theme="light"] .calendar-legend {
+  border-color: rgba(16, 92, 182, 0.08);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-today { border: 1.5px solid #C9A84C; background-color: rgba(201, 168, 76, 0.15); }
+[data-theme="light"] .dot-today { border-color: var(--primary); background-color: rgba(16, 92, 182, 0.15); }
+
+.dot-blue { background-color: #105cb6; box-shadow: 0 0 6px rgba(16, 92, 182, 0.4); }
+.dot-red { background-color: #e62323; box-shadow: 0 0 6px rgba(230, 35, 35, 0.4); }
+
+
+/* ==========================================
+   BOOKING DETAILS CARD & PLACEHOLDER STYLING
+   ========================================== */
+.booking-info-details-area {
+  margin-top: 32px;
+}
+
+/* Active Selected Details */
+.selected-booking-details-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.booking-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+}
+
+[data-theme="light"] .booking-details-header {
+  border-color: rgba(16, 92, 182, 0.08);
+}
+
+.booking-ref-badge {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #C9A84C;
+}
+
+[data-theme="light"] .booking-ref-badge {
+  color: var(--primary);
+}
+
+.booking-status-indicator {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.status-enchanted {
+  background: rgba(16, 92, 182, 0.15);
+  border: 1px solid rgba(16, 92, 182, 0.3);
+  color: #38C8F0;
+}
+
+[data-theme="light"] .status-enchanted {
+  background: rgba(16, 92, 182, 0.08);
+  color: var(--primary);
+}
+
+.status-pending-mana {
+  background: rgba(230, 35, 35, 0.15);
+  border: 1px solid rgba(230, 35, 35, 0.3);
+  color: #e62323;
+}
+
+/* Selected booking layout */
+.booking-details-body-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .booking-details-body-grid {
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+  }
+}
+
+.booking-vehicle-preview {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-preview-car-photo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.4));
+}
+
+.booking-preview-car-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.booking-quest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booking-vehicle-title {
+  font-family: var(--font-secondary);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+[data-theme="light"] .booking-vehicle-title {
+  color: var(--on-background);
+}
+
+.booking-vehicle-spec {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  margin: -8px 0 4px 0;
+}
+
+.booking-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.booking-meta-icon {
+  color: #C9A84C;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+[data-theme="light"] .booking-meta-icon {
+  color: var(--primary);
+}
+
+.booking-meta-lbl {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 2px 0;
+}
+
+.booking-meta-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+[data-theme="light"] .booking-meta-val {
+  color: var(--on-background);
+}
+
+/* Booking Footer info row */
+.booking-details-footer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  margin-top: 8px;
+}
+
+@media (min-width: 600px) {
+  .booking-details-footer-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.booking-footer-lbl {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.booking-addons-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.addon-pill-micro {
+  font-size: 9px;
+  font-weight: 600;
+  color: #C9A84C;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+[data-theme="light"] .addon-pill-micro {
+  color: var(--primary);
+  background: rgba(16, 92, 182, 0.04);
+  border-color: rgba(16, 92, 182, 0.15);
+}
+
+.booking-price-group {
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .booking-price-group {
+    text-align: right;
+  }
+}
+
+.booking-footer-price {
+  font-family: var(--font-secondary);
+  font-size: 22px;
+  font-weight: 700;
+  color: #C9A84C;
+}
+
+[data-theme="light"] .booking-footer-price {
+  color: var(--primary);
+}
+
+/* Animations for card summoning transitions */
+.animate-summon-card {
+  animation: cardSummonConjure 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardSummonConjure {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Booking Placeholder when no date is clicked */
+.booking-placeholder-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 32px;
+  gap: 16px;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  color: rgba(201, 168, 76, 0.3);
+  animation: hoverFloat 4s infinite ease-in-out;
+}
+
+[data-theme="light"] .placeholder-icon {
+  color: rgba(16, 92, 182, 0.2);
+}
+
+@keyframes hoverFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.placeholder-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+[data-theme="light"] .placeholder-title {
+  color: var(--on-background);
+}
+
+.placeholder-desc {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0;
+}
+
+.placeholder-fleet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(16, 92, 182, 0.25);
+  margin-top: 8px;
+}
+
+.placeholder-fleet-btn:hover {
+  background: var(--secondary);
+  box-shadow: 0 6px 20px rgba(230, 35, 35, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   COUNCIL VERIFICATION SANCTUM CARD
+   ========================================== */
+.council-verification-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sanctum-card-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.requirements-list-area {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.requirement-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s;
+}
+
+[data-theme="light"] .requirement-item {
+  background: rgba(16, 92, 182, 0.02);
+  border-color: rgba(16, 92, 182, 0.05);
+}
+
+.requirement-item:hover {
+  border-color: rgba(255, 200, 128, 0.15);
+}
+
+[data-theme="light"] .requirement-item:hover {
+  border-color: rgba(16, 92, 182, 0.15);
+}
+
+.requirement-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.req-icon {
+  font-size: 28px;
+}
+
+.verified-icon {
+  color: #2ecc71;
+}
+
+.pending-icon {
+  color: #f1c40f;
+}
+
+.warning-icon {
+  color: #e74c3c;
+}
+
+.requirement-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.req-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+[data-theme="light"] .req-name {
+  color: var(--on-background);
+}
+
+.req-status-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.badge-verified {
+  background: rgba(46, 204, 113, 0.12);
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.badge-pending {
+  background: rgba(241, 196, 15, 0.12);
+  border: 1px solid rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.badge-unsubmitted {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+/* File summary details */
+.req-file-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+[data-theme="light"] .req-file-details {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.file-icon {
+  color: #C9A84C;
+  font-size: 16px;
+}
+
+[data-theme="light"] .file-icon {
+  color: var(--primary);
+}
+
+.req-file-name {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .req-file-name {
+  color: var(--on-surface);
+}
+
+/* Upload triggers styling */
+.req-upload-trigger-area {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload-note {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.req-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px dashed rgba(201, 168, 76, 0.3);
+  color: #C9A84C;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+[data-theme="light"] .req-upload-btn {
+  background: rgba(16, 92, 182, 0.04);
+  border-color: rgba(16, 92, 182, 0.3);
+  color: var(--primary);
+}
+
+.req-upload-btn:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: #C9A84C;
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .req-upload-btn:hover {
+  background: rgba(16, 92, 182, 0.08);
+  border-color: var(--primary);
+}
+
+/* Slow spin loader animation */
+.animate-spin-slow {
+  animation: spinSlow 3s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
