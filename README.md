@@ -22,13 +22,26 @@ git --version
 
 # 🚀 Getting Started
 
-## 1. Clone the Repository
+## 1. Get the Project Files
+
+### Option A — Clone the Repository (Recommended)
 
 Open your terminal or command prompt and run:
 
 ```bash
 git clone https://github.com/renzrebogio/WizardsCarRental.git
 ```
+
+---
+
+### Option B — Download ZIP (No Git Required)
+
+1. Go to:
+   [https://github.com/renzrebogio/WizardsCarRental](https://github.com/renzrebogio/WizardsCarRental)
+2. Click the green **Code** button.
+3. Select **Download ZIP**.
+4. Extract the ZIP file.
+5. Open the extracted folder in VS Code.
 
 ---
 
