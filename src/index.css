@@ -88,13 +88,13 @@
 [data-theme="light"] {
   /* Surface Colors */
   --surface: #ffffff;
-  --surface-dim: #f5f8fc;
+  --surface-dim: #c7def7;
   --surface-bright: #ffffff;
   --surface-container-lowest: #ffffff;
-  --surface-container-low: #f8fbff;
-  --surface-container: #f0f5fa;
-  --surface-container-high: #e1ebf5;
-  --surface-container-highest: #c8d8ea;
+  --surface-container-low: #dbeafc;
+  --surface-container: #bcd6f7;
+  --surface-container-high: #a2c6f5;
+  --surface-container-highest: #89b5ee;
 
   /* On-Surface */
   --on-surface: #0f172a;
@@ -132,8 +132,8 @@
 [data-theme="light"] body {
   background-color: #ffffff;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(16, 92, 182, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at center, rgba(16, 92, 182, 0.04) 1px, transparent 1px);
+    radial-gradient(circle at 50% 0%, rgba(16, 92, 182, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at center, rgba(16, 92, 182, 0.1) 1px, transparent 1px);
   background-size: 100% 100%, 48px 48px;
   background-attachment: fixed;
 }
@@ -370,11 +370,23 @@ ul, ol {
   border: 1px solid rgba(4, 180, 220, 0.1);
 }
 
+[data-theme="light"] .glass-panel {
+  background: rgba(188, 214, 247, 0.65);
+  border-color: rgba(16, 92, 182, 0.35);
+  box-shadow: 0 14px 40px rgba(16, 92, 182, 0.16), inset 0 0 20px rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
 @media (max-width: 768px) {
   .glass-panel {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(21, 24, 41, 0.95);
+  }
+  
+  [data-theme="light"] .glass-panel {
+    background: #e1effc;
   }
 }
 
@@ -560,3 +572,104 @@ ul, ol {
   box-shadow: 0 0 20px rgba(245, 166, 35, 0.6), 0 0 40px rgba(255, 94, 0, 0.3);
   transform: translateY(-2px);
 }
+
+/* ====================================================
+   UNIFIED GLOBAL PREMIUM WIZARD HEADERS
+   ==================================================== */
+.section-header-area {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Centered Overline Category */
+.section-overline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.section-overline-line {
+  width: 60px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.4);
+  transition: all 0.3s ease;
+}
+
+.section-overline-text {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #C9A84C;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* High-Contrast Main Title */
+.section-title {
+  font-family: 'Cinzel', serif; /* Clean elegant serif */
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+  line-height: 1.35 !important;
+  word-spacing: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Standout highly decorative last-word accent */
+.section-title-accent {
+  font-family: 'Cinzel Decorative', serif !important; 
+  color: #C9A84C;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Signature Scroll Divider */
+.section-divider {
+  display: block;
+  margin: 0 auto 16px auto;
+  opacity: 0.8;
+  max-width: 100%;
+}
+
+/* Elegant Subtitle */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 8px auto 0 auto;
+  line-height: 1.6;
+}
+
+/* Light Mode Overrides for Section Headers */
+[data-theme="light"] .section-overline-text {
+  color: #005bb5 !important; /* Royal Brand Blue in Light Mode */
+}
+
+[data-theme="light"] .section-overline-line {
+  background: rgba(16, 92, 182, 0.2) !important;
+}
+
+[data-theme="light"] .section-title {
+  color: #1a202c !important; /* Crisp readable dark gray */
+}
+
+[data-theme="light"] .section-title-accent {
+  color: #e62323 !important; /* Bold Action Red in Light Mode */
+  text-shadow: 0 0 10px rgba(230, 35, 35, 0.1) !important;
+}
+
+[data-theme="light"] .section-subtitle {
+  color: #4a5568 !important; /* Readable dark slate */
+}
+

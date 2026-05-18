@@ -29,12 +29,27 @@ export default function Rates() {
       {/* Banner */}
       <header className="rates-banner">
         <div className="rates-banner__glow"></div>
-        <div className="container rates-banner__content animate-fade-in-up">
-          <h1 className="text-display-xl">Transparent Rates. No Hidden Fees.</h1>
-          <p className="text-body-lg rates-banner__sub">
-            Choose the perfect chariot for your quest. Our magical fleet is priced clearly, ensuring
-            your journey begins without a hitch.
-          </p>
+        <div className="container rates-banner__content animate-fade-in-up" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-area" style={{ marginBottom: 0 }}>
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ Honest Summonings ✦</span>
+              <span className="section-overline-line"></span>
+            </div>
+            <h1 className="section-title">
+              TRANSPARENT <span className="section-title-accent">RATES</span>
+            </h1>
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+              <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+              <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+            </svg>
+            <p className="section-subtitle">
+              Choose the perfect chariot for your quest. Our magical fleet is priced clearly, ensuring your journey begins without a hitch.
+            </p>
+          </div>
         </div>
       </header>
 
@@ -63,7 +78,7 @@ export default function Rates() {
                 </div>
               )}
               <div className="rate-card__image-wrap">
-                <img src={vehicle.image} alt={vehicle.name} className="rate-card__image" />
+                <img src={vehicle.image} alt={vehicle.name} className="rate-card__image" loading="lazy" />
               </div>
               <h3 className="rate-card__name">{vehicle.name}</h3>
               <div className="rate-card__price">

@@ -663,6 +663,161 @@
 }
 
 
+
+/* ====================================================
+   UNIFIED PREMIUM WIZARD SECTION HEADERS
+   ==================================================== */
+.section-header-area {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered Overline Category */
+.section-overline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.section-overline-line {
+  width: 60px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.4);
+  transition: all 0.3s ease;
+}
+
+.section-overline-text {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #C9A84C;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* High-Contrast Main Title */
+.section-title {
+  font-family: 'Cinzel', serif; /* Clean elegant serif matching Codex */
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+  line-height: 1.35 !important;
+  word-spacing: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Standout highly decorative last-word accent */
+.section-title-accent {
+  font-family: 'Cinzel Decorative', serif !important; 
+  color: #C9A84C;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Signature Scroll Divider */
+.section-divider {
+  display: block;
+  margin: 0 auto 16px auto;
+  opacity: 0.8;
+  max-width: 100%;
+}
+
+/* Elegant Subtitle */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 8px auto 0 auto;
+  line-height: 1.6;
+}
+
+/* Cascading Scroll entry animations for Unified Headers (Only on landing page scroll sections) */
+.arsenal .section-header-area > *,
+.rites-section .section-header-area > *,
+.origin-section .section-header-area > *,
+.core-mana-section .section-header-area > *,
+.sanctum .section-header-area > * {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.animate-root--active .section-header-area > *,
+.rites-active .section-header-area > *,
+.story-active .section-header-area > *,
+.core-active .section-header-area > *,
+.sanctum__content--revealed .section-header-area > * {
+  animation: unifiedHeaderFadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-root--active .section-header-area > :nth-child(1),
+.rites-active .section-header-area > :nth-child(1),
+.story-active .section-header-area > :nth-child(1),
+.core-active .section-header-area > :nth-child(1),
+.sanctum__content--revealed .section-header-area > :nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.animate-root--active .section-header-area > :nth-child(2),
+.rites-active .section-header-area > :nth-child(2),
+.story-active .section-header-area > :nth-child(2),
+.core-active .section-header-area > :nth-child(2),
+.sanctum__content--revealed .section-header-area > :nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.animate-root--active .section-header-area > :nth-child(3),
+.rites-active .section-header-area > :nth-child(3),
+.story-active .section-header-area > :nth-child(3),
+.core-active .section-header-area > :nth-child(3),
+.sanctum__content--revealed .section-header-area > :nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.animate-root--active .section-header-area > :nth-child(4),
+.rites-active .section-header-area > :nth-child(4),
+.story-active .section-header-area > :nth-child(4),
+.core-active .section-header-area > :nth-child(4),
+.sanctum__content--revealed .section-header-area > :nth-child(4) {
+  animation-delay: 0.52s;
+}
+
+@keyframes unifiedHeaderFadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Light Mode Overrides for Section Headers */
+[data-theme="light"] .section-overline-text {
+  color: #005bb5 !important; /* Royal Brand Blue in Light Mode */
+}
+
+[data-theme="light"] .section-overline-line {
+  background: rgba(16, 92, 182, 0.2) !important;
+}
+
+[data-theme="light"] .section-title {
+  color: #1a202c !important; /* Crisp readable dark gray */
+}
+
+[data-theme="light"] .section-title-accent {
+  color: #e62323 !important; /* Bold Action Red in Light Mode */
+  text-shadow: 0 0 10px rgba(230, 35, 35, 0.1) !important;
+}
+
+[data-theme="light"] .section-subtitle {
+  color: #4a5568 !important; /* Readable dark slate */
+}
+
+
 /* ═══ THE RITES OF SUMMONING (RESERVATION) ═══ */
 .rites-section {
   position: relative;
@@ -1746,7 +1901,7 @@
 }
 
 .core-main-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: 'Cinzel', serif; /* Clean elegant serif matching Codex */
   font-size: 52px;
   font-weight: 700;
   color: #FFFFFF;
@@ -1754,12 +1909,15 @@
   opacity: 0;
   transform: translateY(20px);
   line-height: 1.35 !important;
+  word-spacing: 6px; /* Elegant visual separation between words */
+  letter-spacing: 0.5px;
 }
 .core-active .core-main-title {
   animation: coreFadeInUp 0.6s ease-out forwards;
 }
 
 .core-title-mana {
+  font-family: 'Cinzel Decorative', serif !important; /* Highly decorative accent last word */
   color: #C9A84C;
   font-style: italic;
 }
@@ -1989,8 +2147,8 @@
 
 /* Card Text */
 .core-card-title {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 15px;
+  font-family: 'Cinzel', serif; /* Changed to elegant standard serif for maximum readability */
+  font-size: 16px; /* Sized beautifully for standard Cinzel */
   font-weight: 700;
   color: white;
   letter-spacing: 0.12em;
@@ -2017,6 +2175,61 @@
   text-align: center;
   max-width: 260px;
   margin: 0 auto;
+}
+
+/* Customer Testimonials Visual Additions */
+.customer-avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.customer-rating {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.customer-rating .star-icon {
+  color: #ffaa00; /* Warm Mascot Golden-Orange star color */
+  font-size: 16px;
+  filter: drop-shadow(0 0 4px rgba(255, 170, 0, 0.7));
+}
+
+.customer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(0, 91, 181, 0.06);
+  border: 1px solid rgba(0, 91, 181, 0.15);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #005bb5;
+  margin: 12px auto 16px auto;
+  box-shadow: 0 2px 8px rgba(0, 91, 181, 0.03);
+}
+
+[data-theme="dark"] .customer-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fb-recommend-icon {
+  font-size: 12px;
 }
 
 /* Bottom Line */
@@ -2133,8 +2346,7 @@
   overflow: hidden;
   transition: 
     opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s,
-    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s,
-    max-height 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s;
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s;
 }
 
 .sanctum__content--revealed {
@@ -2407,36 +2619,49 @@
 /* ====================================================
    LIGHT THEME HERO OVERRIDES
    ==================================================== */
+[data-theme="light"] .hero {
+  background-color: #005bb5 !important; /* Solid signature royal brand blue */
+}
+
 [data-theme="light"] .hero__video-overlay {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.7) 0%, rgba(216, 231, 249, 0.25) 50%, rgba(255, 255, 255, 0.7) 100%),
-              radial-gradient(ellipse at center, transparent 0%, rgba(216, 231, 249, 0.5) 100%);
+  background: 
+    /* 1. Top and bottom dark shadow vignette to anchor header blending */
+    linear-gradient(to bottom, rgba(0, 20, 50, 0.35) 0%, transparent 20%, transparent 80%, rgba(0, 91, 181, 0.25) 100%),
+    /* 2. Soft brand blue horizontal frame with highly presentable center */
+    linear-gradient(to right, rgba(0, 91, 181, 0.5) 0%, rgba(0, 91, 181, 0.18) 50%, rgba(0, 91, 181, 0.5) 100%),
+    /* 3. Deep cinematic corner shadow vignette */
+    radial-gradient(ellipse at center, transparent 30%, rgba(0, 15, 40, 0.5) 85%, rgba(0, 10, 30, 0.75) 100%) !important;
 }
 
 [data-theme="light"] .hero__mascot-glow {
   background: radial-gradient(circle, rgba(16, 92, 182, 0.25) 0%, transparent 70%);
 }
 
+[data-theme="light"] .hero__title {
+  color: #ffffff !important;
+}
+
 [data-theme="light"] .glow-text-primary {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 5px rgba(16, 92, 182, 0.1);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0, 91, 181, 0.5) !important;
 }
 
 [data-theme="light"] .hero__subtitle {
-  color: var(--on-surface-variant);
+  color: rgba(255, 255, 255, 0.85) !important;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 [data-theme="light"] .hero__cta-btn {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 4px 15px rgba(16, 92, 182, 0.25);
+  background: #ffc880 !important; /* Standout Gold button */
+  color: #001a3d !important;      /* Deep contrast blue text */
+  box-shadow: 0 4px 15px rgba(255, 200, 128, 0.4) !important;
   border: none;
 }
 
 [data-theme="light"] .hero__cta-btn:hover {
-  background: var(--secondary); /* Bold Action Red */
-  box-shadow: 0 6px 20px rgba(230, 35, 35, 0.35);
-  color: #ffffff;
+  background: #e62323 !important; /* Action Red on hover */
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(230, 35, 35, 0.45) !important;
   transform: translateY(-2px);
 }
 
@@ -2448,7 +2673,7 @@
 }
 
 [data-theme="light"] .carousel-slide__brand-bg {
-  color: rgba(16, 92, 182, 0.22);
+  color: rgba(0, 91, 181, 0.26) !important;
 }
 
 [data-theme="light"] .carousel-slide__platform {
@@ -2618,7 +2843,7 @@
   .carousel-control--next { right: 4px !important; }
 
   /* Core Values grimoire cards spacing overrides */
-  .mana-grid {
+  .core-grid {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
@@ -2695,46 +2920,80 @@
 }
 
 [data-theme="light"] .core-card {
-  background: #ffffff;
-  border-color: rgba(16, 92, 182, 0.18);
-  box-shadow: 0 4px 20px rgba(16, 92, 182, 0.05);
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 91, 181, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 91, 181, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
 [data-theme="light"] .core-card::before {
-  background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(16, 92, 182, 0.015) 3px, rgba(16, 92, 182, 0.015) 6px);
+  background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0, 91, 181, 0.01) 3px, rgba(0, 91, 181, 0.01) 6px) !important;
 }
 
 [data-theme="light"] .core-card:hover {
-  box-shadow: 0 20px 50px rgba(16, 92, 182, 0.15);
+  background: #ffffff !important;
+  box-shadow: 0 20px 50px rgba(0, 91, 181, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 91, 181, 0.25) !important;
 }
 
-@supports (background: conic-gradient(red, blue)) {
-  [data-theme="light"] .core-card::after {
-    background: conic-gradient(from var(--angle, 0deg), transparent 0deg, var(--accent) 60deg, transparent 120deg) border-box;
-  }
+/* Glass-morphic Featured Center Card */
+[data-theme="light"] .core-card--featured {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 2px solid #005bb5 !important;
+  box-shadow: 0 16px 45px rgba(0, 91, 181, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
-@supports not (background: conic-gradient(from var(--angle), red, blue)) {
-  [data-theme="light"] .core-card:hover::after {
-    border-color: var(--accent);
-  }
+[data-theme="light"] .core-card--featured:hover {
+  box-shadow: 0 24px 60px rgba(0, 91, 181, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
+/* High Contrast Title and Body Text for Testimonials */
 [data-theme="light"] .core-card-title {
-  color: var(--primary); /* Deep Royal Blue */
+  color: #003c7a !important; /* Deep highly-legible royal blue titles */
+  font-weight: 700 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 [data-theme="light"] .core-card-body {
-  color: var(--on-surface-variant);
+  color: #2d3748 !important; /* Rich crisp slate-gray body text (eliminates white-on-white) */
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
 }
 
-[data-theme="light"] .core-card--featured {
-  border-color: var(--primary);
-  box-shadow: 0 0 40px rgba(16, 92, 182, 0.1);
+/* Beautiful High-Contrast Avatar Initials inside rings */
+[data-theme="light"] .core-card:nth-child(1) .customer-avatar-initials {
+  color: #0284c7 !important; /* Rich deep sky blue EJ */
+}
+[data-theme="light"] .core-card:nth-child(1) .core-sigil-ring {
+  border-color: rgba(2, 132, 199, 0.25) !important;
+}
+
+[data-theme="light"] .core-card:nth-child(2) .customer-avatar-initials {
+  color: #b45309 !important; /* Rich deep amber-gold CT */
+}
+[data-theme="light"] .core-card:nth-child(2) .core-sigil-ring {
+  border-color: rgba(180, 83, 9, 0.25) !important;
+}
+
+[data-theme="light"] .core-card:nth-child(3) .customer-avatar-initials {
+  color: #6d28d9 !important; /* Rich deep magic purple RC */
+}
+[data-theme="light"] .core-card:nth-child(3) .core-sigil-ring {
+  border-color: rgba(109, 40, 217, 0.25) !important;
+}
+
+/* Clean glass-effect badge inside cards */
+[data-theme="light"] .customer-badge {
+  background: rgba(0, 91, 181, 0.08) !important;
+  border-color: rgba(0, 91, 181, 0.18) !important;
+  color: #005bb5 !important;
+  box-shadow: 0 2px 8px rgba(0, 91, 181, 0.04) !important;
 }
 
 [data-theme="light"] .core-card-line {
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  background: linear-gradient(to right, transparent, var(--accent), transparent) !important;
+  opacity: 0.6 !important;
 }
 
 /* Light theme support for Rosedale directions button */
@@ -2791,7 +3050,7 @@
 }
 
 [data-theme="light"] .carousel-slide__brand-bg {
-  color: rgba(16, 92, 182, 0.22);
+  color: rgba(0, 91, 181, 0.26) !important;
 }
 
 [data-theme="light"] .carousel-slide__platform {
@@ -2827,153 +3086,3 @@
   background-color: var(--primary);
   opacity: 0.15;
 }
-
-/* ====================================================
-   MOBILE RESPONSIVENESS OVERRIDES (max-width: 768px)
-   ==================================================== */
-@media (max-width: 768px) {
-  /* Hero Section Mobile */
-  .hero__inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 32px;
-    padding-top: 100px;
-    padding-bottom: 60px;
-  }
-  
-  .hero__content {
-    align-items: center;
-    max-width: 100%;
-  }
-
-  .hero__title {
-    font-size: clamp(2.3rem, 6vw, 3.8rem);
-    line-height: 1.15;
-  }
-
-  .hero__subtitle {
-    font-size: 15px;
-    text-align: center;
-  }
-
-  .hero__mascot-col {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .hero__mascot-wrapper {
-    max-width: 250px;
-  }
-
-  /* Fleet Carousel (Arsenal) Mobile */
-  .carousel-showcase {
-    height: auto !important;
-    gap: 20px;
-    padding-bottom: 20px;
-  }
-
-  .carousel-showcase__track {
-    position: relative;
-    height: 260px !important;
-    margin-bottom: 0;
-  }
-
-  .carousel-slide {
-    width: 90% !important;
-  }
-
-  .carousel-slide--prev,
-  .carousel-slide--next {
-    display: none !important; /* Hide overlapping preview cars on small screens */
-  }
-
-  .carousel-slide--active {
-    transform: translate(-50%, -50%) scale(0.95) !important;
-  }
-
-  .carousel-slide__platform {
-    top: 50% !important;
-    height: 400px !important;
-    width: 100% !important;
-  }
-
-  .carousel-details {
-    position: relative !important;
-    bottom: 0 !important;
-    padding: 0 !important;
-    margin-top: 16px;
-    gap: 20px;
-  }
-
-  .carousel-details__left {
-    max-width: 100% !important;
-    border-left: 3px solid var(--primary);
-    padding-left: 12px;
-  }
-
-  .carousel-details__title {
-    font-size: 24px !important;
-  }
-
-  .carousel-details__stats {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px !important;
-    width: 100% !important;
-    border-top: 1px solid rgba(139, 94, 32, 0.1);
-    border-bottom: 1px solid rgba(139, 94, 32, 0.1);
-    padding: 16px 0;
-  }
-  
-  [data-theme="light"] .carousel-details__stats {
-    border-color: rgba(16, 92, 182, 0.1);
-  }
-
-  .carousel-stat {
-    align-items: center;
-  }
-
-  .carousel-control {
-    top: 35% !important;
-    width: 44px !important;
-    height: 44px !important;
-    background: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 50%;
-    color: #ffffff !important;
-  }
-  
-  [data-theme="light"] .carousel-control {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border-color: rgba(16, 92, 182, 0.15) !important;
-    color: var(--primary) !important;
-  }
-
-  .carousel-control--prev { left: 4px !important; }
-  .carousel-control--next { right: 4px !important; }
-
-  /* Core Values grimoire cards spacing overrides */
-  .core-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  /* How To Book (Rites) Section Mobile */
-  .rites-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  /* Sanctum Section Mobile */
-  .sanctum__grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  .sanctum__map-container {
-    height: 300px !important;
-  }
-}
-
-

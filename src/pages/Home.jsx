@@ -118,14 +118,23 @@ export default function Home() {
       >
         <div className="container">
           {/* Magical Section Header */}
-          <div className="arsenal__header">
-            <div className="arsenal__rune-line"></div>
-            <div className="arsenal__title-wrap">
-              <span className="arsenal__label">⟡ Enchanted Fleet ⟡</span>
-              <h2 className="arsenal__title">The Arsenal</h2>
-              <p className="arsenal__subtitle">Hand-picked steeds for every quest</p>
+          <div className="section-header-area">
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ Enchanted Fleet ✦</span>
+              <span className="section-overline-line"></span>
             </div>
-            <div className="arsenal__rune-line"></div>
+            <h2 className="section-title">
+              THE{" "}<span className="section-title-accent">ARSENAL</span>
+            </h2>
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+              <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+              <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+            </svg>
+            <p className="section-subtitle">Hand-picked steeds for every quest</p>
           </div>
 
           {/* Inline Stats */}
@@ -239,17 +248,23 @@ export default function Home() {
       <section id="reservation" ref={ritesRef} className={`rites-section ${ritesActive ? 'rites-active' : ''}`}>
         <div className="container rites-container">
           
-          <div className="rites-overline">
-            <span className="rites-overline-line"></span>
-            <span className="rites-overline-text">✦ HOW TO BOOK ✦</span>
-            <span className="rites-overline-line"></span>
-          </div>
-
-          <div className="rites-title-area">
-            <h2 className="rites-main-title">
-              The Rites of <span className="rites-title-wizard">Summoning</span>
+          <div className="section-header-area">
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ How to Book ✦</span>
+              <span className="section-overline-line"></span>
+            </div>
+            <h2 className="section-title">
+              THE RITES OF{" "}<span className="section-title-accent">SUMMONING</span>
             </h2>
-            <p className="rites-subtitle">
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+              <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+              <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+            </svg>
+            <p className="section-subtitle">
               Four simple steps to secure your steed for the journey ahead.
             </p>
           </div>
@@ -325,17 +340,23 @@ export default function Home() {
       <section id="about" ref={storyRef} className={`origin-section ${storyActive ? 'story-active' : ''}`}>
         <div className="container origin-container">
           
-          <div className="origin-overline">
-            <span className="origin-overline-line"></span>
-            <span className="origin-overline-text">✦ OUR ORIGIN ✦</span>
-            <span className="origin-overline-line"></span>
-          </div>
-
-          <div className="origin-title-area">
-            <h2 className="origin-main-title">
-              Codex of the <span className="origin-title-wizard">Wizard's</span>
+          <div className="section-header-area">
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ Our Origin ✦</span>
+              <span className="section-overline-line"></span>
+            </div>
+            <h2 className="section-title">
+              CODEX OF THE{" "}<span className="section-title-accent">WIZARD'S</span>
             </h2>
-            <p className="origin-subtitle">
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+              <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+              <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+            </svg>
+            <p className="section-subtitle">
               A tale of trust, wheels, and a little magic — from Kawit, Cavite
             </p>
           </div>
@@ -389,17 +410,19 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  {/* Floating particles */}
-                  <div className="origin-particles">
-                    <span className="origin-particle p1"></span>
-                    <span className="origin-particle p2"></span>
-                    <span className="origin-particle p3"></span>
-                    <span className="origin-particle p4"></span>
-                    <span className="origin-particle p5"></span>
-                    <span className="origin-particle p6"></span>
-                    <span className="origin-particle p7"></span>
-                    <span className="origin-particle p8"></span>
-                  </div>
+                  {/* Floating particles - dynamic rendering to eliminate idle animation CPU/GPU load */}
+                  {storyActive && (
+                    <div className="origin-particles">
+                      <span className="origin-particle p1"></span>
+                      <span className="origin-particle p2"></span>
+                      <span className="origin-particle p3"></span>
+                      <span className="origin-particle p4"></span>
+                      <span className="origin-particle p5"></span>
+                      <span className="origin-particle p6"></span>
+                      <span className="origin-particle p7"></span>
+                      <span className="origin-particle p8"></span>
+                    </div>
+                  )}
 
                   <div className="origin-scroll-content">
                     {/* Scroll Inner Title */}
@@ -417,7 +440,7 @@ export default function Home() {
                           <div className="origin-frame-inner">
                             <div className="origin-photo-placeholder">
                               <span className="origin-photo-icon">
-                                <img src="/images/logo-mascot-circular.png" alt="Wizards Logo" style={{ width: '50px', height: '50px' }} />
+                                <img src="/images/logo-mascot-circular.png" alt="Wizards Logo" style={{ width: '50px', height: '50px' }} loading="lazy" />
                               </span>
                               <span className="origin-photo-text">The Council Awaits...</span>
                             </div>
@@ -427,6 +450,7 @@ export default function Home() {
                               src="/images/wizards-team.png" 
                               alt="The Wizard's Council Team" 
                               className="origin-photo-img"
+                              loading="lazy"
                             />
                           </div>
                           <div className="origin-nameplate">The Wizard's Council</div>
@@ -477,11 +501,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Wax Seal */}
+            {/* Wax Seal - lazy load image */}
             <div className={`origin-seal ${storyActive ? 'seal-stamp' : ''}`}>
               <div className="origin-seal-inner"></div>
               <div className="origin-seal-emblem">
-                <img src="/images/logo-mascot-circular.png" alt="Wizards Seal" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <img src="/images/logo-mascot-circular.png" alt="Wizards Seal" style={{ width: '100%', height: '100%', objectFit: 'contain' }} loading="lazy" />
               </div>
             </div>
 
@@ -519,46 +543,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ CORE MANA ═══ */}
+      {/* ═══ CLIENT TESTIMONIALS ═══ */}
       <section id="mana" className={`core-mana-section ${valuesActive ? 'core-active' : ''}`} ref={valuesRef}>
-        <div className="core-particles">
-          <span className="core-particle cp1"></span>
-          <span className="core-particle cp2"></span>
-          <span className="core-particle cp3"></span>
-          <span className="core-particle cp4"></span>
-          <span className="core-particle cp5"></span>
-          <span className="core-particle cp6"></span>
-          <span className="core-particle cp7"></span>
-          <span className="core-particle cp8"></span>
-          <span className="core-particle cp9"></span>
-          <span className="core-particle cp10"></span>
-        </div>
+        {/* Floating particles - only rendered when reviews section is active to save GPU cycles */}
+        {valuesActive && (
+          <div className="core-particles">
+            <span className="core-particle cp1"></span>
+            <span className="core-particle cp2"></span>
+            <span className="core-particle cp3"></span>
+            <span className="core-particle cp4"></span>
+            <span className="core-particle cp5"></span>
+            <span className="core-particle cp6"></span>
+            <span className="core-particle cp7"></span>
+            <span className="core-particle cp8"></span>
+            <span className="core-particle cp9"></span>
+            <span className="core-particle cp10"></span>
+          </div>
+        )}
 
         <div className="container core-container">
           {/* Section Header */}
-          <div className="core-header-area">
-            <div className="core-overline">
-              <span className="core-overline-line"></span>
-              <span className="core-overline-text">✦ CORE VALUES ✦</span>
-              <span className="core-overline-line"></span>
+          <div className="section-header-area">
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ Client Testimonials ✦</span>
+              <span className="section-overline-line"></span>
             </div>
-            
-            <h2 className="core-main-title">
-              OUR CORE <span className="core-title-mana">MANA</span>
+            <h2 className="section-title">
+              REAL WIZARDS'{" "}<span className="section-title-accent">REVIEWS</span>
             </h2>
-            
-            <svg className="core-divider" width="300" height="16" viewBox="0 0 300 16">
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
               <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
               <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
               <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
               <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
               <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
             </svg>
+            <p className="section-subtitle">
+              Real reviews and magical summonings from our satisfied guild members
+            </p>
           </div>
 
           {/* Cards Grid */}
           <div className="core-grid">
-            {/* CARD 1 */}
+            {/* CARD 1: Earl Luis L. Javier */}
             <div 
               className={`core-card ${hoveredCard === 0 ? 'is-hovered' : ''}`}
               onMouseEnter={() => setHoveredCard(0)}
@@ -567,21 +595,32 @@ export default function Home() {
             >
               <div className="core-sigil">
                 <div className="core-sigil-ring rotate-normal"></div>
-                <div className="core-sigil-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#38C8F0" strokeWidth="1.5" strokeLinecap="round" className="core-sigil-icon">
-                    <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
-                    <polyline points="9 12 11 14 15 10"/>
-                  </svg>
+                <div className="core-sigil-inner customer-avatar-glow">
+                  <span className="customer-avatar-initials">EJ</span>
                 </div>
               </div>
-              <h3 className="core-card-title">UNBREAKABLE RELIABILITY</h3>
+              
+              <div className="customer-rating">
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+              </div>
+
+              <h3 className="core-card-title">EARL LUIS L. JAVIER</h3>
+              
+              <div className="customer-badge">
+                <span className="fb-recommend-icon">👍</span> Recommends Wizards
+              </div>
+
               <p className="core-card-body">
-                Every steed undergoes rigorous tactical maintenance. When you summon a vehicle from us, you are guaranteed a steadfast steed that won't falter.
+                "Good Services in an affordable manner."
               </p>
               <div className="core-card-line"></div>
             </div>
 
-            {/* CARD 2 - FEATURED */}
+            {/* CARD 2 - FEATURED: Cedrex Tuazon */}
             <div 
               className={`core-card core-card--featured ${hoveredCard === 1 ? 'is-hovered' : ''}`}
               onMouseEnter={() => setHoveredCard(1)}
@@ -590,20 +629,32 @@ export default function Home() {
             >
               <div className="core-sigil">
                 <div className="core-sigil-ring rotate-reverse"></div>
-                <div className="core-sigil-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" className="core-sigil-icon">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                  </svg>
+                <div className="core-sigil-inner customer-avatar-glow">
+                  <span className="customer-avatar-initials">CT</span>
                 </div>
               </div>
-              <h3 className="core-card-title">MYSTICAL AFFORDABILITY</h3>
+
+              <div className="customer-rating">
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+              </div>
+
+              <h3 className="core-card-title">CEDREX TUAZON</h3>
+
+              <div className="customer-badge">
+                <span className="fb-recommend-icon">👍</span> Recommends Wizards
+              </div>
+
               <p className="core-card-body">
-                Premium service shouldn't require a dragon's hoard. We offer transparent pricing and competitive rates without hidden curses.
+                "Solid experience sa Wizards Car Rental! Madali kausap, mabilis ang proseso, tsaka maayos ang mga sasakyan. Malinis, well-maintained, at sulit sa presyo."
               </p>
               <div className="core-card-line"></div>
             </div>
 
-            {/* CARD 3 */}
+            {/* CARD 3: Rainier Ace H. Cabatuando */}
             <div 
               className={`core-card ${hoveredCard === 2 ? 'is-hovered' : ''}`}
               onMouseEnter={() => setHoveredCard(2)}
@@ -612,16 +663,27 @@ export default function Home() {
             >
               <div className="core-sigil">
                 <div className="core-sigil-ring rotate-normal"></div>
-                <div className="core-sigil-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#9B7FD4" strokeWidth="1.5" strokeLinecap="round" className="core-sigil-icon">
-                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3 a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-                  </svg>
+                <div className="core-sigil-inner customer-avatar-glow">
+                  <span className="customer-avatar-initials">RC</span>
                 </div>
               </div>
-              <h3 className="core-card-title">GUILD-LEVEL SERVICE</h3>
+
+              <div className="customer-rating">
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+                <span className="star-icon">★</span>
+              </div>
+
+              <h3 className="core-card-title">RAINIER ACE CABATUANDO</h3>
+
+              <div className="customer-badge">
+                <span className="fb-recommend-icon">👍</span> Recommends Wizards
+              </div>
+
               <p className="core-card-body">
-                Our concierges are highly trained guides, ready to assist you 24/7. Expect rapid responses tailored to your specific quest.
+                "Good service! madali kausap!"
               </p>
               <div className="core-card-line"></div>
             </div>
@@ -643,23 +705,36 @@ export default function Home() {
           {/* Content that "opens up" */}
           <div className={`sanctum__content ${sanctumActive ? 'sanctum__content--revealed' : ''}`}>
             {/* Title */}
-            <div className="sanctum__header">
-              <div className="arsenal__rune-line"></div>
-              <div className="arsenal__title-wrap">
-                <span className="arsenal__label">⟡ Our Sanctum ⟡</span>
-                <h2 className="arsenal__title" style={{ fontSize: 'clamp(36px, 6vw, 56px)' }}>Find the Wizard</h2>
+            <div className="section-header-area">
+              <div className="section-overline">
+                <span className="section-overline-line"></span>
+                <span className="section-overline-text">✦ Our Sanctum ✦</span>
+                <span className="section-overline-line"></span>
               </div>
-              <div className="arsenal__rune-line"></div>
+              <h2 className="section-title">
+                FIND THE{" "}<span className="section-title-accent">WIZARD</span>
+              </h2>
+              <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+                <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+                <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+                <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+                <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+                <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              </svg>
+              <p className="section-subtitle">
+                Visit our physical sanctum in Kawit, Cavite for direct counsel and summonings
+              </p>
             </div>
 
             {/* Main Grid */}
             <div className="sanctum__grid">
-              {/* Photo */}
+              {/* Photo - lazy loaded image below fold */}
               <div className="sanctum__photo-wrap">
                 <img 
                   src="/images/rosedale-entrance.png" 
                   alt="Rosedale Residences — Wizard's Sanctum Location" 
                   className="sanctum__photo"
+                  loading="lazy"
                 />
                 <div className="sanctum__photo-caption">
                   <span className="material-symbols-outlined">place</span>

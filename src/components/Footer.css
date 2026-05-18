@@ -149,10 +149,56 @@
 
 /* --- Light Mode Footer Overrides --- */
 [data-theme="light"] .footer {
-  background: linear-gradient(180deg, #ffffff 0%, rgba(204, 224, 255, 0.6) 100%);
-  border-top: 1px solid rgba(16, 92, 182, 0.1);
+  background: #005bb5;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] .footer__tagline {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .footer__heading {
+  color: #ffc880; /* Magical golden-yellow accent */
+}
+
+[data-theme="light"] .footer__link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .footer__link:hover {
+  color: #ffc880;
+  text-shadow: 0 0 8px rgba(255, 200, 128, 0.5);
+}
+
+[data-theme="light"] .footer__link--highlight {
+  color: #b6ebff; /* soft neon light blue */
+}
+
+[data-theme="light"] .footer__contact-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .footer__contact-item:hover {
+  color: #ffc880;
+}
+
+[data-theme="light"] .footer__icon {
+  color: #ffc880;
+}
+
+[data-theme="light"] .footer__social-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="light"] .footer__social-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffc880;
+  border-color: #ffc880;
 }
 
 [data-theme="light"] .footer__bottom {
-  border-top: 1px solid rgba(16, 92, 182, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
 }

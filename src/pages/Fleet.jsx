@@ -21,7 +21,28 @@ export default function Fleet() {
       {/* Banner */}
       <header className="fleet-banner">
         <div className="fleet-banner__glow"></div>
-        <h1 className="text-display-xl fleet-banner__title animate-fade-in-up">OUR FLEET</h1>
+        <div className="container animate-fade-in-up" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-area" style={{ marginBottom: 0 }}>
+            <div className="section-overline">
+              <span className="section-overline-line"></span>
+              <span className="section-overline-text">✦ Summon Your Steed ✦</span>
+              <span className="section-overline-line"></span>
+            </div>
+            <h1 className="section-title">
+              OUR <span className="section-title-accent">FLEET</span>
+            </h1>
+            <svg className="section-divider" width="300" height="16" viewBox="0 0 300 16">
+              <line x1="0" y1="8" x2="120" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+              <path d="M130 8 L140 3 L150 8 L140 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <circle cx="150" cy="8" r="3" fill="#C9A84C" opacity="0.8"/>
+              <path d="M160 8 L170 3 L180 8 L170 13 Z" fill="#C9A84C" opacity="0.6"/>
+              <line x1="180" y1="8" x2="300" y2="8" stroke="#C9A84C" strokeWidth="1" opacity="0.35"/>
+            </svg>
+            <p className="section-subtitle">
+              Select from our magical roster of hand-picked steeds for your grand quest
+            </p>
+          </div>
+        </div>
       </header>
 
       <div className="container fleet-content">
@@ -48,7 +69,7 @@ export default function Fleet() {
 
               <div className="fleet-card__image-wrap">
                 <div className="fleet-card__image-glow"></div>
-                <img src={car.image} alt={`${car.name} ${car.year}`} className="fleet-card__image" />
+                <img src={car.image} alt={`${car.name} ${car.year}`} className="fleet-card__image" loading="lazy" />
               </div>
 
               <div className="fleet-card__body">

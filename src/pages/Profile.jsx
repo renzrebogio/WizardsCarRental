@@ -6,6 +6,7 @@ import './Profile.css'
 export default function Profile() {
   const [currentMonth, setCurrentMonth] = useState(new Date(2026, 4, 1)) // May 2026
   const [selectedBooking, setSelectedBooking] = useState(null)
+  const [showLogoutModal, setShowLogoutModal] = useState(false)
   
   // Interactive Verification Requirements State
   const [requirements, setRequirements] = useState({
@@ -264,7 +265,7 @@ export default function Profile() {
               {/* Enchanted Perks Section */}
               <div className="account-perks-section">
                 <h3 className="details-header-title">Enchanted Perks</h3>
-                <div className="perks-list">
+                <div className="perks-list" style={{ marginBottom: '24px' }}>
                   <div className="perk-pill">
                     <span className="material-symbols-outlined">wind_power</span>
                     <span>Favorable Wind (-10% MPV)</span>
@@ -274,6 +275,14 @@ export default function Profile() {
                     <span>Cavite Teleportation (Free Drop-off)</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Depart Sanctum (Logout Button) */}
+              <div className="account-logout-wrapper">
+                <button className="btn-logout" onClick={() => setShowLogoutModal(true)}>
+                  <span className="material-symbols-outlined">logout</span>
+                  <span>DEPART SANCTUM</span>
+                </button>
               </div>
 
             </div>
@@ -454,6 +463,44 @@ export default function Profile() {
 
         </div>
       </div>
+
+      {/* ═══ MAGICAL LOGOUT CONFIRMATION MODAL ═══ */}
+      {showLogoutModal && (
+        <div className="logout-modal-overlay">
+          <div className="logout-modal-card glass-panel">
+            <div className="logout-modal-glow"></div>
+            
+            <div className="logout-modal-header">
+              <div className="logout-modal-icon-wrap">
+                <span className="material-symbols-outlined">gpp_maybe</span>
+              </div>
+              <h2 className="logout-modal-title">Depart Sanctum?</h2>
+            </div>
+            
+            <div className="logout-modal-body">
+              <p>
+                Are you sure you want to temporarily depart your sanctum? Your active summonings, credentials, and mana points will remain securely locked in the High Council vaults until you return.
+              </p>
+            </div>
+            
+            <div className="logout-modal-actions">
+              <button className="btn-modal-cancel" onClick={() => setShowLogoutModal(false)}>
+                Stay Connected
+              </button>
+              <button 
+                className="btn-modal-confirm" 
+                onClick={() => {
+                  alert("✨ You have safely departed the sanctum! (Frontend Demo Mode)");
+                  setShowLogoutModal(false);
+                }}
+              >
+                Depart
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }

@@ -93,9 +93,9 @@ export default function CarDetails() {
           {/* Visual Archives */}
           <h3 className="car-detail__section-title" style={{ color: 'var(--secondary)', marginTop: '40px' }}>Visual Archives</h3>
           <div className="car-detail__archives">
-            <img src={vehicle.image} alt={`${vehicle.name} Front`} className="archive-img" />
-            <img src={vehicle.heroImage} alt={`${vehicle.name} Angle`} className="archive-img" />
-            <img src={vehicle.image} alt={`${vehicle.name} Rear`} className="archive-img" />
+            <img src={vehicle.image} alt={`${vehicle.name} Front`} className="archive-img" loading="lazy" />
+            <img src={vehicle.heroImage} alt={`${vehicle.name} Angle`} className="archive-img" loading="lazy" />
+            <img src={vehicle.image} alt={`${vehicle.name} Rear`} className="archive-img" loading="lazy" />
           </div>
 
           {/* Features */}
