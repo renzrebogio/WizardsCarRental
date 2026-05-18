@@ -1,7 +1,7 @@
 /* === FLEET PAGE === */
 .fleet-banner {
   height: 200px;
-  background: #0A0B1A;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
 
 /* Card */
 .fleet-card {
-  background: #151829;
+  background: var(--surface-container);
   border-radius: var(--radius-xl);
   border: 1px solid rgba(76, 214, 254, 0.1);
   overflow: hidden;
