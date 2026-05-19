@@ -47,7 +47,7 @@ export default function Fleet() {
 
       <div className="container fleet-content">
         {/* Filter Bar */}
-        <div className="fleet-filter glass-panel">
+        <div className="fleet-filter glass-panel hide-scrollbar">
           {filters.map(f => (
             <button
               key={f}

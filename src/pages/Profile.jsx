@@ -58,7 +58,7 @@ export default function Profile() {
     },
     {
       id: 'BK-8821',
-      vehicle: vehicles[1], // Mitsubishi Expander
+      vehicle: vehicles[1], // Mitsubishi Xpander
       startDate: new Date(2026, 4, 24),
       endDate: new Date(2026, 4, 26),
       quest: 'Midgard Family Carriage (Metro Tour)',
@@ -375,7 +375,7 @@ export default function Profile() {
                 </div>
                 <div className="legend-item">
                   <span className="legend-dot dot-red"></span>
-                  <span>Action MPVs (Expander)</span>
+                  <span>Action MPVs (Xpander)</span>
                 </div>
               </div>
             </div>

@@ -35,13 +35,17 @@
 .rates-toggle {
   display: flex;
   justify-content: center;
-  gap: 0;
+  gap: 6px;
   margin: 40px auto 60px;
-  background: var(--surface-container);
+  padding: 6px;
   border-radius: var(--radius-full);
-  padding: 4px;
   max-width: 360px;
-  border: 1px solid rgba(82, 69, 52, 0.2);
+  width: 100%;
+  background: rgba(33, 26, 18, 0.75);
+  border: 1px solid rgba(255, 200, 128, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .rates-toggle__btn {
@@ -53,16 +57,24 @@
   font-weight: 700;
   color: var(--on-surface-variant);
   background: transparent;
-  transition: all 0.2s;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rates-toggle__btn:hover {
   color: var(--primary);
+  background: rgba(255, 200, 128, 0.08);
 }
 
 .rates-toggle__btn--active {
-  background: var(--secondary);
-  color: var(--on-secondary);
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 4px 15px rgba(255, 200, 128, 0.25);
+}
+
+.rates-toggle__btn--active:hover {
+  background: var(--primary);
+  color: var(--on-primary);
 }
 
 /* Rate Cards */
@@ -290,3 +302,78 @@
 }
 
 .color-primary { color: var(--primary); }
+
+/* ====================================================
+   LIGHT THEME RATES PAGE OVERRIDES
+   ==================================================== */
+[data-theme="light"] .rates-toggle {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(16, 92, 182, 0.15);
+  box-shadow: 0 10px 30px rgba(16, 92, 182, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+[data-theme="light"] .rates-toggle__btn {
+  color: var(--on-surface-variant);
+  border: none;
+}
+
+[data-theme="light"] .rates-toggle__btn:hover {
+  color: var(--primary);
+  background: rgba(16, 92, 182, 0.06);
+}
+
+[data-theme="light"] .rates-toggle__btn--active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(16, 92, 182, 0.25);
+}
+
+[data-theme="light"] .rates-toggle__btn--active:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+[data-theme="light"] .rate-card {
+  background: #ffffff;
+  border: 1px solid rgba(16, 92, 182, 0.1);
+  box-shadow: 0 6px 24px rgba(16, 92, 182, 0.04);
+}
+
+[data-theme="light"] .rate-card:hover {
+  box-shadow: 0 15px 40px rgba(16, 92, 182, 0.12);
+  border-color: rgba(16, 92, 182, 0.3);
+}
+
+[data-theme="light"] .rate-card--popular {
+  border-color: var(--secondary);
+  box-shadow: 0 8px 30px rgba(230, 35, 35, 0.15);
+}
+
+[data-theme="light"] .rate-card__spec-item .material-symbols-outlined {
+  color: var(--primary);
+}
+
+[data-theme="light"] .addon-card {
+  background: #ffffff;
+  border: 1px solid rgba(16, 92, 182, 0.1);
+  box-shadow: 0 6px 24px rgba(16, 92, 182, 0.04);
+}
+
+[data-theme="light"] .addon-card--active {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(16, 92, 182, 0.12);
+}
+
+[data-theme="light"] .addon-card__icon-wrap {
+  background: rgba(16, 92, 182, 0.08);
+}
+
+[data-theme="light"] .addon-card__icon {
+  color: var(--primary);
+}
+
+[data-theme="light"] .addon-toggle--on {
+  background: var(--primary);
+}

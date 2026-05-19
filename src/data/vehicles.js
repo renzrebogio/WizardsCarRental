@@ -30,8 +30,8 @@ export const vehicles = [
     glowColor: 'primary'
   },
   {
-    id: 'mitsubishi-expander-2025',
-    name: 'Mitsubishi Expander',
+    id: 'mitsubishi-xpander-2025',
+    name: 'Mitsubishi Xpander',
     year: 2025,
     type: 'MPV',
     seats: 7,
@@ -52,10 +52,10 @@ export const vehicles = [
       'Dual AC',
       'Keyless Entry'
     ],
-    image: '/images/fleet_expander_transparent.png',
-    heroImage: '/images/expander-book-transparent.png',
-    sideImage: '/images/expander-side-transparent.png',
-    frontImage: '/images/expander-front-transparent.png',
+    image: '/images/fleet_xpander_transparent.png',
+    heroImage: '/images/xpander-book-transparent.png',
+    sideImage: '/images/xpander-side-transparent.png',
+    frontImage: '/images/xpander-front-transparent.png',
     glowColor: 'secondary'
   },
   {
@@ -132,8 +132,8 @@ export const rateVehicles = [
     popular: false
   },
   {
-    id: 'mitsubishi-expander-2025',
-    name: 'Mitsubishi Expander',
+    id: 'mitsubishi-xpander-2025',
+    name: 'Mitsubishi Xpander',
     pricePerDay: 2800,
     pricePerWeek: 17500,
     pricePerMonth: 60000,

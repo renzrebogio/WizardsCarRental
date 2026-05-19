@@ -203,7 +203,7 @@ export default function Home() {
                 <h3 className="carousel-details__title">
                   {vehicles[activeIndex].id === 'toyota-fortuner-2026' ? 'TOYOTA FORTUNER' :
                    vehicles[activeIndex].id === 'toyota-innova-2025' ? 'TOYOTA INNOVA 2025 — "SHINY"' :
-                   vehicles[activeIndex].id === 'mitsubishi-expander-2025' ? 'MITSUBISHI EXPANDER 2025 — "ASPHALT"' :
+                   vehicles[activeIndex].id === 'mitsubishi-xpander-2025' ? 'MITSUBISHI XPANDER 2025 — "ASPHALT"' :
                    vehicles[activeIndex].id === 'nissan-livina-2023' ? 'NISSAN LIVINA 2023' :
                    vehicles[activeIndex].name.toUpperCase()}
                 </h3>
@@ -235,8 +235,8 @@ export default function Home() {
               </div>
 
               <div className="carousel-details__action">
-                <Link to={`/fleet/${vehicles[activeIndex].id}`} className="btn-primary" style={{ padding: '12px 32px', borderRadius: 30, color: '#000', textDecoration: 'none', display: 'inline-block' }}>
-                  Summon Steed
+                <Link to="/fleet" className="btn-primary" style={{ padding: '12px 32px', borderRadius: 30, color: '#000', textDecoration: 'none', display: 'inline-block' }}>
+                  View All Fleet
                 </Link>
               </div>
             </div>
